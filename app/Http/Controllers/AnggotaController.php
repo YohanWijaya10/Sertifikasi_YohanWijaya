@@ -13,5 +13,21 @@ class AnggotaController extends Controller
         return view('anggota.index', compact('anggota'));
     }
 
-    // Metode lain sesuai kebutuhan, seperti create, store, edit, update, destroy, dll.
+    public function create()
+    {
+        return view('anggota.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'nullable',
+            'nomor_telepon' => 'nullable',
+        ]);
+
+        Anggota::create($request->all());
+
+        return redirect()->route('anggota.index')->with('success', 'Data Anggota berhasil ditambahkan');
+    }
 }

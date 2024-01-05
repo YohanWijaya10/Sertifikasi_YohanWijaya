@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pinjaman extends Model
+class Peminjaman extends Model
 {
     use HasFactory;
 
@@ -20,14 +20,13 @@ class Pinjaman extends Model
         'tanggal_kembali',
     ];
 
-    // Tambahan relasi jika diperlukan
-    // public function koleksi()
-    // {
-    //     return $this->belongsTo(Koleksi::class, 'id_koleksi', 'id_koleksi');
-    // }
+    public function koleksi()
+    {
+        return $this->belongsTo(Koleksi::class, 'id_koleksi', 'id_koleksi');
+    }
 
-    // public function anggota()
-    // {
-    //     return $this->belongsTo(Anggota::class, 'id_anggota', 'id_anggota');
-    // }
+    public function anggota()
+    {
+        return $this->belongsTo(Anggota::class, 'id_anggota', 'id_anggota');
+    }
 }
