@@ -20,8 +20,9 @@
         <tbody>
             @foreach ($peminjaman as $item)
                 <tr>
-                    <td>{{ $item->koleksi->judul }}</td>
-                    <td>{{ $item->anggota->nama }}</td>
+                    <td>{{ optional($item->koleksi)->judul }}</td>
+
+                    <td>{{ optional($item->anggota)->nama }}</td>
                     <td>{{ $item->tanggal_pinjam }}</td>
                     <td>{{ $item->tanggal_kembali }}</td>
                 </tr>

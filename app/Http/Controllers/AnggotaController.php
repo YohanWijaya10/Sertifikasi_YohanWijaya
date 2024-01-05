@@ -30,4 +30,36 @@ class AnggotaController extends Controller
 
         return redirect()->route('anggota.index')->with('success', 'Data Anggota berhasil ditambahkan');
     }
+
+    public function edit($id)
+    {
+        $anggota = Anggota::find($id);
+
+        return view('anggota.edit', compact('anggota'));
+    }
+
+    public function update(Request $request, $id)
+
+    {
+        $anggota = Anggota::find($id);
+
+        $anggota->update([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'nomor_telepon' => $request->nomor_telepon,
+        ]);
+
+        return redirect()->route('anggota.index')->with('success', 'Data Anggota berhasil diupdate');
+    }
+    public function destroy($id)
+{
+    $anggota = Anggota::find($id);
+    $anggota->delete();
+
+    return redirect()->route('anggota.index')->with('success', 'Data Anggota berhasil dihapus');
+}
+
+
+    
+
 }

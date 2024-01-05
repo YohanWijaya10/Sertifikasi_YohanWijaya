@@ -19,8 +19,10 @@ return new class extends Migration
             $table->date('tanggal_kembali');
             $table->timestamps();
 
-            $table->foreign('id_koleksi')->references('id_koleksi')->on('koleksi');
-            $table->foreign('id_anggota')->references('id_anggota')->on('anggota');
+            $table->foreign('id_koleksi')->references('id_koleksi')->on('koleksi')->onDelete('SET NULL');
+            $table->foreign('id_anggota')->references('id_anggota')->on('anggota')->onDelete('SET NULL');
+
+
         });
     }
 

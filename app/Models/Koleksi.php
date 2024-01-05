@@ -18,8 +18,9 @@ class Koleksi extends Model
         'pengarang',
         'tahun_terbit',
         'jumlah_kopi',
+        'gambar'
     ];
-    
+
     public function peminjamans()
     {
         return $this->hasMany(Peminjaman::class, 'id_koleksi', 'id_koleksi');
