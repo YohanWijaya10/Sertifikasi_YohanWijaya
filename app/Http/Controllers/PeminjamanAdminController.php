@@ -60,9 +60,14 @@ class PeminjamanAdminController extends Controller
             'tanggal_pinjam' => $request->tanggal_pinjam,
             'tanggal_kembali' => $request->tanggal_kembali,
             'status_pengembalian' => $request->status_pengembalian,
+            
 
         ]);
+        if ($request->status_pengembalian == '1') {
+            $koleksi = Koleksi::find($request->id_koleksi);
+            $koleksi->increment('jumlah_kopi');
+        }
 
-        return redirect()->route('AdminPeminjaman.index')->with('success', 'Data Peminjaman berhasil diupdate');
+        return redirect()->route('peminjaman.index')->with('success', 'Data Peminjaman berhasil diupdate');
     }
 }

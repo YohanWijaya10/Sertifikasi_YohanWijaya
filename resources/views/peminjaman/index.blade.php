@@ -1,4 +1,3 @@
-<!-- resources/views/peminjaman/index.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Peminjaman Perpustakaan</title>
     
-    <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -46,7 +44,6 @@
         </table>
     </div>
 
-    <!-- Admin Password Popup Modal -->
     
 </body>
 </html>

@@ -55,11 +55,9 @@ Route::get('/anggota/{id}', function ($id) {
     $anggota = Anggota::find($id);
 
     if (!$anggota) {
-        // Handle ketika anggota tidak ditemukan
         return redirect()->route('anggota.index')->with('error', 'Anggota tidak ditemukan');
     }
 
-    // Lanjutkan hanya jika anggota ditemukan
     return view('anggota.detail', compact('anggota'));
 });
 

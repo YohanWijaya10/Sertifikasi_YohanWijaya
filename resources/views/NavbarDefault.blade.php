@@ -41,7 +41,6 @@
     </div>
 </div>
 
-<!-- Include Bootstrap JS and Popper.js (if needed) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -54,16 +53,13 @@
     function checkAdminPassword() {
         var password = $('#adminPassword').val();
 
-        // For simplicity, using hardcoded password '1234'
         if (password === '1234') {
-            // Redirect to admin view or perform other actions
-            // You can add window.location.href = '/admin' or any other redirection logic here
+           
             window.location.href = '/anggota';
         } else {
             alert('Incorrect password. Please try again.');
         }
 
-        // Close the modal
         $('#adminPasswordModal').modal('hide');
     }
 </script>

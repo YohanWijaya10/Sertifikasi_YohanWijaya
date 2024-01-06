@@ -1,4 +1,3 @@
-<!-- resources/views/peminjaman/index.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Peminjaman Perpustakaan</title>
     
-    <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -44,10 +42,10 @@
                         @endif
                         </td>
                         <td><form onsubmit="return confirm('Yakin ingin hapus?');"
-                            action="{{ route('peminjamanAdmin.edit', $item->id_anggota) }}" method="POST">
+                            action="{{ route('peminjamanAdmin.edit', $item->id_peminjaman) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="{{ route('peminjamanAdmin.edit', $item->id_anggota) }}"
+                            <a href="{{ route('peminjamanAdmin.edit', $item->id_peminjaman) }}"
                                 class="btn btn-warning btn-sm">Ubah</a>
                         </form>
                         </td>
@@ -57,7 +55,6 @@
         </table>
     </div>
 
-    <!-- Include Bootstrap JS and Popper.js (if needed) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

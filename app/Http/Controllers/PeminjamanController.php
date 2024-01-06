@@ -35,11 +35,9 @@ class PeminjamanController extends Controller
 
         ]);
 
-        // Mengurangi jumlah copy koleksi
         $koleksi = Koleksi::find($request->id_koleksi);
         $koleksi->decrement('jumlah_kopi');
 
-        // Menyimpan data peminjaman
         Peminjaman::create($request->all());
 
         return redirect()->route('peminjaman.index')->with('success', 'Data Peminjaman berhasil ditambahkan');

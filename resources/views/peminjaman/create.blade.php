@@ -38,17 +38,13 @@
         
         <script>
             function calculateReturnDate() {
-                // Get the selected borrowing date
                 const borrowingDate = new Date(document.getElementById('tanggal_pinjam').value);
                 
-                // Calculate the return date as 7 days from the borrowing date
                 const returnDate = new Date(borrowingDate);
                 returnDate.setDate(returnDate.getDate() + 7);
                 
-                // Format the return date as "YYYY-MM-DD"
                 const formattedReturnDate = returnDate.toISOString().split('T')[0];
                 
-                // Set the value of the return date input
                 document.getElementById('tanggal_kembali').value = formattedReturnDate;
             }
         </script>
