@@ -10,7 +10,7 @@ class AnggotaController extends Controller
     public function index()
     {
         $anggota = Anggota::all();
-        return view('anggota.index', compact('anggota'));
+        return view('anggota.index', ["active_anggota" => "active"] ,compact('anggota'));
     }
 
     public function create()

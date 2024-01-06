@@ -1,3 +1,6 @@
+
+@section('content')
+    
 <!-- resources/views/anggota/create.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
@@ -23,3 +26,5 @@
     </form>
 </body>
 </html>
+
+@endsection

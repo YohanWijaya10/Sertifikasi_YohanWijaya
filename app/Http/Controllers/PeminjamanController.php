@@ -30,9 +30,15 @@ class PeminjamanController extends Controller
             'id_koleksi' => 'required|exists:koleksi,id_koleksi',
             'id_anggota' => 'required|exists:anggota,id_anggota',
             'tanggal_pinjam' => 'required|date',
-            'tanggal_kembali' => 'required|date',
+            'tanggal_kembali' => 'required|date|after_or_equal:tanggal_pinjam|before_or_equal:' . now()->addDays(7)->toDateString(),
+
         ]);
 
+        // Mengurangi jumlah copy koleksi
+        $koleksi = Koleksi::find($request->id_koleksi);
+        $koleksi->decrement('jumlah_kopi');
+
+        // Menyimpan data peminjaman
         Peminjaman::create($request->all());
 
         return redirect()->route('peminjaman.index')->with('success', 'Data Peminjaman berhasil ditambahkan');

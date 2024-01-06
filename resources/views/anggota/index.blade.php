@@ -9,6 +9,8 @@
 </head>
 
 <body>
+        @include('Navbar')
+
     <h1>Data Anggota Perpustakaan</h1>
     <table border="1">
         <thead>

@@ -10,7 +10,7 @@ class KoleksiController extends Controller
     public function index()
     {
         $koleksi = Koleksi::all();
-        return view('koleksi.index', compact('koleksi'));
+        return view('koleksi.index',["active_koleksi" => "active"] ,compact('koleksi'));
     }
 
     public function create()

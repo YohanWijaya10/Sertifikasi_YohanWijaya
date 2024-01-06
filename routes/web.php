@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/admin', function () {
+    return view('admin');
 });
 
 
@@ -63,7 +63,7 @@ Route::get('/anggota/{id}', function ($id) {
 
 
 
-Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+Route::get('/', [PeminjamanController::class, 'index'])->name('peminjaman.index');
 Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
 Route::post('/peminjaman/store', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 Route::get('/peminjaman/{id}/edit', [PeminjamanController::class, 'edit'])->name('peminjaman.edit');

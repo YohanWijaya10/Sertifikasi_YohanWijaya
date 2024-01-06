@@ -7,6 +7,7 @@
     <title>Tambah Data Koleksi</title>
 </head>
 <body>
+
     <h1>Tambah Data Koleksi</h1>
     <form action="{{ route('koleksi.store') }}" method="post" enctype="multipart/form-data">
         @csrf
