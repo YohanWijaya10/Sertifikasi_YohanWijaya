@@ -29,7 +29,7 @@ class PeminjamanAdminController extends Controller
             'id_anggota' => 'required|exists:anggota,id_anggota',
             'tanggal_pinjam' => 'required|date',
             'tanggal_kembali' => 'required|date|after_or_equal:tanggal_pinjam|before_or_equal:' . now()->addDays(7)->toDateString(),
-
+            'status_pengembalian' => 'required'
         ]);
 
         // Mengurangi jumlah copy koleksi
@@ -59,6 +59,8 @@ class PeminjamanAdminController extends Controller
             'id_anggota' => $request->id_anggota,
             'tanggal_pinjam' => $request->tanggal_pinjam,
             'tanggal_kembali' => $request->tanggal_kembali,
+            'status_pengembalian' => $request->status_pengembalian,
+
         ]);
 
         return redirect()->route('AdminPeminjaman.index')->with('success', 'Data Peminjaman berhasil diupdate');

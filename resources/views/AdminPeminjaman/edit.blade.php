@@ -1,47 +1,67 @@
-<!-- resources/views/peminjaman/edit.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Data Peminjaman</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Edit Data Peminjaman</h1>
-    <form action="{{ route('peminjaman.update', ['id' => $peminjaman->id_peminjaman]) }}" method="post">
-        @csrf
-        @method('PUT')
+    <div class="container mt-5">
+        <h1>Edit Data Peminjaman</h1>
+        <form action="{{ route('peminjamanAdmin.update', ['id' => $peminjaman->id_peminjaman]) }}" method="post">
+            @csrf
+            @method('PUT')
 
-        <label for="id_koleksi">Koleksi:</label>
-        <select name="id_koleksi" required>
-            @foreach($koleksi as $item)
-                <option value="{{ $item->id_koleksi }}" {{ $item->id_koleksi == $peminjaman->id_koleksi ? 'selected' : '' }}>
-                    {{ $item->judul }}
-                </option>
-            @endforeach
-        </select>
-        <br>
+            <div class="form-group">
+                <label for="id_koleksi">Koleksi:</label>
+                <select class="form-control" name="id_koleksi" required>
+                    @foreach($koleksi as $item)
+                        <option value="{{ $item->id_koleksi }}" {{ $item->id_koleksi == $peminjaman->id_koleksi ? 'selected' : '' }}>
+                            {{ $item->judul }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
-        <label for="id_anggota">Anggota:</label>
-        <select name="id_anggota" required>
-            @foreach($anggota as $item)
-                <option value="{{ $item->id_anggota }}" {{ $item->id_anggota == $peminjaman->id_anggota ? 'selected' : '' }}>
-                    {{ $item->nama }}
-                </option>
-            @endforeach
-        </select>
-        <br>
+            <div class="form-group">
+                <label for="id_anggota">Anggota:</label>
+                <select class="form-control" name="id_anggota" required>
+                    @foreach($anggota as $item)
+                        <option value="{{ $item->id_anggota }}" {{ $item->id_anggota == $peminjaman->id_anggota ? 'selected' : '' }}>
+                            {{ $item->nama }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
-        <label for="tanggal_pinjam">Tanggal Pinjam:</label>
-        <input type="date" name="tanggal_pinjam" value="{{ $peminjaman->tanggal_pinjam }}" required>
-        <br>
+            <div class="form-group">
+                <label for="tanggal_pinjam">Tanggal Pinjam:</label>
+                <input class="form-control" type="date" name="tanggal_pinjam" value="{{ $peminjaman->tanggal_pinjam }}" required>
+            </div>
 
-        <label for="tanggal_kembali">Tanggal Kembali:</label>
-        <input type="date" name="tanggal_kembali" value="{{ $peminjaman->tanggal_kembali }}" required>
-        <br>
+            <div class="form-group">
+                <label for="tanggal_kembali">Tanggal Kembali:</label>
+                <input class="form-control" type="date" name="tanggal_kembali" value="{{ $peminjaman->tanggal_kembali }}" required>
+            </div>
 
-        <button type="submit">Simpan Perubahan</button>
-    </form>
-    
+            <div class="form-group">
+                <label for="status_pengembalian">Status Pengembalian:</label>
+                <select class="form-control" name="status_pengembalian" required>
+                    <option value="0" {{ $peminjaman->status_pengembalian == 0 ? 'selected' : '' }}>Belum Kembali</option>
+                    <option value="1" {{ $peminjaman->status_pengembalian == 1 ? 'selected' : '' }}>Sudah Kembali</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

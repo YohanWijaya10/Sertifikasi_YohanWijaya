@@ -18,6 +18,7 @@ class Peminjaman extends Model
         'id_anggota',
         'tanggal_pinjam',
         'tanggal_kembali',
+        'status_pengembalian'
     ];
 
     public function koleksi()

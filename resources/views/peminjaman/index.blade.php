@@ -22,6 +22,7 @@
                     <th>Nama Anggota</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Kembali</th>
+                    <th>Status Pengembalian</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,13 @@
                         <td>{{ $item->anggota ? $item->anggota->nama : 'Anggota Tidak Ditemukan' }}</td>
                         <td>{{ $item->tanggal_pinjam }}</td>
                         <td>{{ $item->tanggal_kembali }}</td>
+                        <td>
+                            @if ($item->status_pengembalian == 0)
+                                Belum Dikembalikan
+                            @else
+                             Sudah Dikembalikan
+                            @endif
+                            </td>
                         
                     </tr>
                 @endforeach

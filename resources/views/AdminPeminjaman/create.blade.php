@@ -1,11 +1,13 @@
 <!-- resources/views/peminjaman/create.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Peminjaman</title>
 </head>
+
 <body>
     <h1>Tambah Data Peminjaman</h1>
     <form action="{{ route('peminjaman.store') }}" method="post">
@@ -34,24 +36,33 @@
         <label for="tanggal_kembali">Tanggal Kembali:</label>
         <input type="date" name="tanggal_kembali" id="tanggal_kembali" readonly required>
         <br>
+        <label for="status_pengembalian">Tanggal Kembali:</label>
+        <select name="status_pengembalian" id="status_pengembalian" class="form-control" required>
+            <option value="0" selected hidden>belum kembali</option>
+            <option value="1" selected hidden>Sudah Kembali</option>
+        </select>
+
+
+        <br>
         <button type="submit">Simpan</button>
-        
+
         <script>
             function calculateReturnDate() {
                 // Get the selected borrowing date
                 const borrowingDate = new Date(document.getElementById('tanggal_pinjam').value);
-                
+
                 // Calculate the return date as 7 days from the borrowing date
                 const returnDate = new Date(borrowingDate);
                 returnDate.setDate(returnDate.getDate() + 7);
-                
+
                 // Format the return date as "YYYY-MM-DD"
                 const formattedReturnDate = returnDate.toISOString().split('T')[0];
-                
+
                 // Set the value of the return date input
                 document.getElementById('tanggal_kembali').value = formattedReturnDate;
             }
         </script>
     </form>
 </body>
+
 </html>
