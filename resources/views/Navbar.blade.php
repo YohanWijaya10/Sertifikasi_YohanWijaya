@@ -29,10 +29,15 @@
                         <a class="nav-link {{ $active_koleksi ?? '' }}" href="{{ route('koleksi.index') }}">Koleksi</a>
 
                     </li>
+                    <li class="nav-item">
+                        {{-- <a class="nav-link" href="{{ route('koleksi.index') }}">Koleksi</a> --}}
+                        <a class="nav-link {{ $active_peminjaman ?? '' }}" href="{{ route('peminjamanAdmin.index') }}">Peminjaman</a>
+
+                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="/">Logout</a>
                     </li>
                 </ul>
             </div>

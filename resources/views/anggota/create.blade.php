@@ -1,5 +1,4 @@
 
-@section('content')
     
 <!-- resources/views/anggota/create.blade.php -->
 <!DOCTYPE html>
@@ -27,4 +26,3 @@
 </body>
 </html>
 
-@endsection

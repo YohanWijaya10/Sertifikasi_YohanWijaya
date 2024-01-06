@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+    @include('Navbar')
 
-   
-@include('NavbarDefault')
+    
+
     <div class="container mt-4">
         <h1>Data Peminjaman Perpustakaan</h1>
         <table class="table table-bordered">
@@ -31,14 +32,18 @@
                         <td>{{ $item->anggota ? $item->anggota->nama : 'Anggota Tidak Ditemukan' }}</td>
                         <td>{{ $item->tanggal_pinjam }}</td>
                         <td>{{ $item->tanggal_kembali }}</td>
-                        
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 
-    <!-- Admin Password Popup Modal -->
-    
+   
+    <!-- Include Bootstrap JS and Popper.js (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+   
 </body>
 </html>

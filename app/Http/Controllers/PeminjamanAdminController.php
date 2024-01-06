@@ -1,19 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Anggota;
 use App\Models\Koleksi;
 use Illuminate\Http\Request;
 use App\Models\Peminjaman;
 
-
-class PeminjamanController extends Controller
+class PeminjamanAdminController extends Controller
 {
     public function index()
     {
         $peminjaman = Peminjaman::all();
-        return view('peminjaman.index',compact('peminjaman'));
+        return view('AdminPeminjaman.index', ["active_peminjaman" => "active"],compact('peminjaman'));
     }
 
     public function create()
@@ -21,7 +19,7 @@ class PeminjamanController extends Controller
         $koleksi = Koleksi::all();
         $anggota = Anggota::all();
 
-        return view('peminjaman.create', compact('koleksi', 'anggota'));
+        return view('AdminPeminjaman.create', compact('koleksi', 'anggota'));
     }
 
     public function store(Request $request)
@@ -41,7 +39,7 @@ class PeminjamanController extends Controller
         // Menyimpan data peminjaman
         Peminjaman::create($request->all());
 
-        return redirect()->route('peminjaman.index')->with('success', 'Data Peminjaman berhasil ditambahkan');
+        return redirect()->route('AdminPeminjaman.index')->with('success', 'Data Peminjaman berhasil ditambahkan');
     }
     public function edit($id)
     {
@@ -49,7 +47,7 @@ class PeminjamanController extends Controller
         $koleksi = Koleksi::all();
         $anggota = Anggota::all();
 
-        return view('peminjaman.edit', compact('peminjaman', 'koleksi', 'anggota'));
+        return view('AdminPeminjaman.edit', compact('peminjaman', 'koleksi', 'anggota'));
     }
 
     public function update(Request $request, $id)
@@ -63,6 +61,6 @@ class PeminjamanController extends Controller
             'tanggal_kembali' => $request->tanggal_kembali,
         ]);
 
-        return redirect()->route('peminjaman.index')->with('success', 'Data Peminjaman berhasil diupdate');
+        return redirect()->route('AdminPeminjaman.index')->with('success', 'Data Peminjaman berhasil diupdate');
     }
 }

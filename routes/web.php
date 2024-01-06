@@ -3,6 +3,9 @@
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\KoleksiController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PeminjamanAdminController;
+use App\Http\Controllers\KatalogController;
+
 
 use App\Models\Anggota;
 use Illuminate\Support\Facades\Route;
@@ -18,12 +21,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function () {
-    return view('admin');
-});
 
 
+
+Route::get('/Katalog', [KatalogController::class, 'index'])->name('katalog.index');
 Route::get('/koleksi', [KoleksiController::class, 'index'])->name('koleksi.index');
+
 Route::get('/koleksi/create', [KoleksiController::class, 'create'])->name('koleksi.create');
 Route::post('/koleksi/store', [KoleksiController::class, 'store'])->name('koleksi.store');
 Route::get('/koleksi/{id}/edit', [KoleksiController::class, 'edit'])->name('koleksi.edit');
@@ -71,3 +74,8 @@ Route::put('/peminjaman/{id}', [PeminjamanController::class, 'update'])->name('p
 
 
 
+Route::get('/AdminPeminjaman/index', [PeminjamanAdminController::class, 'index'])->name('peminjamanAdmin.index');
+Route::get('/AdminPeminjaman/create', [PeminjamanAdminController::class, 'create'])->name('peminjamanAdmin.create');
+Route::post('/AdminPeminjaman/store', [PeminjamanAdminController::class, 'store'])->name('peminjamanAdmin.store');
+Route::get('/AdminPeminjaman/{id}/edit', [PeminjamanAdminController::class, 'edit'])->name('peminjamanAdmin.edit');
+Route::put('/AdminPeminjaman/{id}', [PeminjamanAdminController::class, 'update'])->name('peminjamanAdmin.update');
